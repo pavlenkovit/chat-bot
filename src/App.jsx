@@ -1,4 +1,5 @@
 import { useState} from 'react'
+import Markdown from 'markdown-to-jsx'
 import './App.css'
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
   return (
     <>
         <p><input type="text" value={value} onChange={(e) => setValue(e.target.value)}/></p>
-        <p>{result}</p>
+        <Markdown>{result}</Markdown>
         <p><button onClick={handleClick}>
             Send
         </button></p>
