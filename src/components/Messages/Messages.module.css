@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.message {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.myMessage {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+  color: #000;
+}
+
+.theirMessage {
+  align-self: flex-start;
+  background-color: #f1f0f0;
+  color: #000;
+}

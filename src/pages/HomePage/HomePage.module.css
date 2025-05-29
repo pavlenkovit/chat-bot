@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  height: 100dvh;
+}
+
+.sidebar {
+  width: 400px;
+  background-color: #1a1a1a;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.messages {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+}
