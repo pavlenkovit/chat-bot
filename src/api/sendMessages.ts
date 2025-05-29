@@ -1,6 +1,11 @@
-import {API_TOKEN} from "../consts.js";
+import { API_TOKEN } from '../consts';
+import { Message } from '../types';
 
-export const sendMessage = async ({ content, model }) => {
+type SendMessageParams = {
+  messages: Message[];
+  model: string;
+};
+export const sendMessages = async ({ messages, model }: SendMessageParams) => {
   const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -9,16 +14,11 @@ export const sendMessage = async ({ content, model }) => {
     },
     body: JSON.stringify({
       model,
-      messages: [
-        {
-          role: 'user',
-          content,
-        },
-      ],
-      "max_tokens": 1000
+      messages: messages,
+      max_tokens: 1000,
     }),
   });
 
   const result = res.json();
   return result;
-}
+};

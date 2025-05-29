@@ -1,0 +1,125 @@
+/* Основной контейнер */
+.select {
+    position: relative;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+/* Заголовок селектора (видимая часть) */
+.selectHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.selectHeader:hover {
+    border-color: #CBD5E0;
+}
+
+.selectHeader.active {
+    border-color: #3182CE;
+    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+}
+
+/* Выбранное значение */
+.selectedValue {
+    color: #2D3748;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Стрелка */
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #718096;
+    transition: transform 0.2s ease;
+}
+
+.arrow svg.rotated {
+    transform: rotate(180deg);
+}
+
+/* Контейнер с опциями */
+.optionsContainer {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Список опций */
+.optionsList {
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+}
+
+/* Отдельная опция */
+.option {
+    padding: 10px 16px;
+    color: #4A5568;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.option:hover {
+    background-color: #F7FAFC;
+}
+
+.option.selected {
+    background-color: #EBF8FF;
+    color: #3182CE;
+    font-weight: 500;
+}
+
+/* Состояние disabled */
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.disabled .selectHeader {
+    background-color: #F7FAFC;
+    cursor: not-allowed;
+}
+
+/* Стили для скроллбара */
+.optionsContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.optionsContainer::-webkit-scrollbar-track {
+    background: #F7FAFC;
+    border-radius: 10px;
+}
+
+.optionsContainer::-webkit-scrollbar-thumb {
+    background: #CBD5E0;
+    border-radius: 10px;
+}
+
+.optionsContainer::-webkit-scrollbar-thumb:hover {
+    background: #A0AEC0;
+}
