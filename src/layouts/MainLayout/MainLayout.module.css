@@ -24,19 +24,6 @@
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
   width: 1%;
   flex-grow: 1;
-}
-
-.messages {
-  flex-grow: 1;
-  height: 1%;
-  display: flex;
-  align-items: flex-end;
-}
-
-.inputPanel {
-  margin: 0 20px 20px 20px;
 }

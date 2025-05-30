@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './MessageSendingPanel.module.css';
 
 export const MessageSendingPanel = ({ onSend }) => {
@@ -11,7 +11,7 @@ export const MessageSendingPanel = ({ onSend }) => {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = e => {
     if (e.key === 'Enter') {
       handleSend();
     }
@@ -24,7 +24,7 @@ export const MessageSendingPanel = ({ onSend }) => {
         className={styles.input}
         value={message}
         placeholder="Введите сообщение"
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={e => setMessage(e.target.value)}
         onKeyPress={handleKeyPress}
       />
       <button className={styles.button} onClick={handleSend}>

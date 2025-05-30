@@ -1,2 +1,12 @@
 .container {
 }
+
+.item {
+  margin-bottom: 10px;
+}
+
+.newChat {
+  padding-bottom: 10px;
+  border-bottom: solid 1px #555;
+  margin-bottom: 10px;
+}

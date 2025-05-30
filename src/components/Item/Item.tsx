@@ -1,35 +1,23 @@
 import React from 'react';
 import styles from './Item.module.css';
+import { Link } from 'react-router-dom';
+import cn from 'classnames';
 
-// Определение типов пропсов
-interface ItemProps {
+type ItemProps = {
   href: string;
   children: React.ReactNode;
-  className?: string;
-  target?: '_blank' | '_self' | '_parent' | '_top';
-  rel?: string;
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
-  isDark?: boolean;
-}
+  isActive?: boolean;
+};
 
-export const Item: React.FC<ItemProps> = ({
-  href,
-  children,
-  className = '',
-  target,
-  rel,
-  onClick,
-  isDark = false,
-}) => {
-  // Формируем итоговый класс компонента
-  const itemClassName = `${styles.item} ${isDark ? styles.itemDark : ''} ${className}`.trim();
-
-  // Если target="_blank", автоматически добавляем rel="noopener noreferrer" для безопасности
-  const itemRel = target === '_blank' ? `noopener noreferrer ${rel || ''}`.trim() : rel;
-
+export const Item: React.FC<ItemProps> = ({ href, children, isActive }) => {
   return (
-    <a href={href} className={itemClassName} target={target} rel={itemRel} onClick={onClick}>
+    <Link
+      to={href}
+      className={cn(styles.item, {
+        [styles.active]: isActive,
+      })}
+    >
       {children}
-    </a>
+    </Link>
   );
 };

@@ -48,15 +48,15 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+p, pre, code {
+  white-space: pre-wrap; /* Сохраняет разрывы строк */
+  word-wrap: break-word; /* Перенос длинных слов */
+}
+
+p {
+  word-break: break-word; /* Перенос слов, если они слишком длинные */
+}
+
+pre {
+  overflow: auto; /* Для длинного текста с горизонтальной прокруткой */
 }
