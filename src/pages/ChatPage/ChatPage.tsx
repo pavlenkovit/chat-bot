@@ -6,8 +6,8 @@ import { MessageSendingPanel } from '../../components/MessageSendingPanel';
 import s from './ChatPage.module.css';
 import { Message } from '../../types';
 import { useLocation, useParams } from 'react-router-dom';
-import useChatsStore from '../../stores/chatsStore.ts';
-import useModelsStore from '../../stores/modelsStore.ts';
+import useChatsStore from '../../stores/chatsStore';
+import useModelsStore from '../../stores/modelsStore';
 
 export const ChatPage = () => {
   const hasRequest = useRef(false);
@@ -42,7 +42,7 @@ export const ChatPage = () => {
       setIsFetching(false);
       setChatMessages(finalMessages, +chatId);
     },
-    [chats]
+    [chats, chatId]
   );
 
   useEffect(() => {

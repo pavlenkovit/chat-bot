@@ -1,5 +1,5 @@
+
 .item {
-    display: inline-block;
     color: inherit;
     text-decoration: none;
     padding: 8px 16px;
@@ -8,6 +8,8 @@
     cursor: pointer;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    gap: 4px;
 }
 
 .item:hover {
@@ -17,4 +19,44 @@
 
 .active {
     background-color: #555;
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.button {
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    outline: none;
+    position: relative;
+}
+
+.buttonText {
+    opacity: 0;
+}
+
+.item:hover .buttonText {
+    opacity: 1;
+}
+
+.dropdown {
+    position: absolute;
+    right: -8px;
+    top: 100%;
+    background-color: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.actionButton {
+    color: #000;
+    background-color: #fff;
+    width: 100%;
 }

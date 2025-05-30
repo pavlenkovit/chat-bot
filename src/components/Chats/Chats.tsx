@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import useChatsStore from '../../stores/chatsStore';
 
 export const Chats = () => {
-  const { chats } = useChatsStore();
+  const { chats, deleteChat, renameChat } = useChatsStore();
   const { id } = useParams();
 
   return (
@@ -16,7 +16,17 @@ export const Chats = () => {
       </div>
       {chats.map(chat => (
         <div key={chat.id} className={s.item}>
-          <Item href={`/chat/${chat.id}`} isActive={`${chat.id}` === id}>
+          <Item
+            href={`/chat/${chat.id}`}
+            isActive={`${chat.id}` === id}
+            onDelete={() => deleteChat(chat.id)}
+            onRename={() => {
+              const userInput = prompt('Введите новое название');
+              if (userInput) {
+                renameChat(chat.id, userInput);
+              }
+            }}
+          >
             {chat.name}
           </Item>
         </div>

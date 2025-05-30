@@ -5,6 +5,8 @@ import { MOCK_CHATS } from '../consts';
 type ChatsState = {
   chats: Chat[];
   setChatMessages: (messages: Message[], chatId: number) => void;
+  deleteChat: (chatId: number) => void;
+  renameChat: (chatId: number, name: string) => void;
 };
 
 const useChatsStore = create<ChatsState>(set => {
@@ -24,6 +26,28 @@ const useChatsStore = create<ChatsState>(set => {
             return {
               ...chat,
               messages,
+            };
+          }
+          return chat;
+        });
+        localStorage.setItem('chats', JSON.stringify(newChats));
+        return { chats: newChats };
+      });
+    },
+    deleteChat: chatId => {
+      set(state => {
+        const newChats = state.chats.filter(chat => chat.id !== chatId);
+        localStorage.setItem('chats', JSON.stringify(newChats));
+        return { chats: newChats };
+      });
+    },
+    renameChat: (chatId, name) => {
+      set(state => {
+        const newChats = state.chats.map(chat => {
+          if (chat.id === chatId) {
+            return {
+              ...chat,
+              name,
             };
           }
           return chat;

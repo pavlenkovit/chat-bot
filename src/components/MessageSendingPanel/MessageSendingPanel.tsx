@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './MessageSendingPanel.module.css';
+import cn from 'classnames';
 
 export const MessageSendingPanel = ({ onSend }) => {
   const [message, setMessage] = useState('');
@@ -27,7 +28,13 @@ export const MessageSendingPanel = ({ onSend }) => {
         onChange={e => setMessage(e.target.value)}
         onKeyPress={handleKeyPress}
       />
-      <button className={styles.button} onClick={handleSend}>
+      <button
+        className={cn(styles.button, {
+          [styles.disabled]: !message,
+        })}
+        onClick={handleSend}
+        disabled={!message}
+      >
         Отправить
       </button>
     </div>
