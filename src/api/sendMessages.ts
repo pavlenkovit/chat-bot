@@ -13,7 +13,7 @@ export const sendMessages = async ({ messages, model }: SendMessageParams) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model,
+      model: model,
       messages: messages,
       max_tokens: 1000,
     }),

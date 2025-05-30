@@ -1,5 +1,6 @@
 export type Message = {
   role: 'user' | 'system';
+  error?: string;
   content: string;
 };
 

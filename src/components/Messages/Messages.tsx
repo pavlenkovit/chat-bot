@@ -26,8 +26,10 @@ export const Messages: FC<MessagesProps> = ({ messages, isLoading }) => {
             className={cn(s.message, {
               [s.myMessage]: message.role === 'user',
               [s.theirMessage]: message.role === 'system',
+              [s.error]: !!message.error,
             })}
           >
+            {message.error}
             <Markdown>{message.content}</Markdown>
           </div>
         ))}

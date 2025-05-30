@@ -33,3 +33,8 @@
   background-color: #f1f0f0;
   color: #000;
 }
+
+.error {
+  background-color: lightcoral;
+  color: #fff;
+}

@@ -1,7 +1,7 @@
 import { Chat } from './types.ts';
 
 export const API_TOKEN =
-  'Bearer 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';
+  'Bearer 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';
 export const INITIAL_MODEL_ID = 'deepseek/deepseek-prover-v2:free';
 export const MOCK_CHATS: Chat[] = [
   {

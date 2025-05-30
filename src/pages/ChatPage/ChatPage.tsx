@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useRef } from 'react';
 import { sendMessages } from '../../api/sendMessages';
 import { Messages } from '../../components/Messages';
 import { MessageSendingPanel } from '../../components/MessageSendingPanel';
@@ -10,6 +10,7 @@ import useChatsStore from '../../stores/chatsStore.ts';
 import useModelsStore from '../../stores/modelsStore.ts';
 
 export const ChatPage = () => {
+  const hasRequest = useRef(false);
   const [isFetching, setIsFetching] = useState(false);
   const { chats, setChatMessages } = useChatsStore();
   const { selectedModelId } = useModelsStore();
@@ -34,7 +35,8 @@ export const ChatPage = () => {
       });
       const systemMessage: Message = {
         role: 'system',
-        content: response.choices?.[0]?.message?.content || '',
+        error: response.error.message,
+        content: response.choices?.[0]?.message?.content,
       };
       const finalMessages: Message[] = [...updatedMessages, systemMessage];
       setIsFetching(false);
@@ -44,7 +46,8 @@ export const ChatPage = () => {
   );
 
   useEffect(() => {
-    if (value) {
+    if (value && !hasRequest.current) {
+      hasRequest.current = true;
       onSend(value);
     }
   }, [value]);
