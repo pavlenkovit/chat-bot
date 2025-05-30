@@ -1,11 +1,11 @@
-import { Model } from '../types.ts';
+import { Model } from '../types';
+import { API_TOKEN } from '../consts';
 
 export const getModels = async () => {
   try {
     const response = await fetch('https://openrouter.ai/api/v1/models', {
       headers: {
-        Authorization:
-          'Bearer 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',
+        Authorization: API_TOKEN,
         'Content-Type': 'application/json',
       },
     });
