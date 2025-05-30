@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { Chat, Message } from '../types.ts';
+import { Chat, Message } from '../types';
+import { MOCK_CHATS } from '../consts';
 
 type ChatsState = {
   chats: Chat[];
@@ -8,7 +9,7 @@ type ChatsState = {
 
 const useChatsStore = create<ChatsState>(set => {
   const storedChats = localStorage.getItem('chats');
-  const initialChats = storedChats ? (JSON.parse(storedChats) as Chat[]) : [];
+  const initialChats = storedChats ? (JSON.parse(storedChats) as Chat[]) : MOCK_CHATS;
 
   return {
     chats: initialChats,
