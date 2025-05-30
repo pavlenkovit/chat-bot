@@ -13,7 +13,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\"",
     "check-format": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\"",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
