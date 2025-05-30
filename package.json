@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://pavlenkovit.github.io/chat-bot",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,11 +11,14 @@
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\"",
-    "check-format": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\""
+    "check-format": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,scss}\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
     "classnames": "^2.5.1",
+    "gh-pages": "^6.3.0",
     "markdown-to-jsx": "^7.7.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
