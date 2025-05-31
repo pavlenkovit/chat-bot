@@ -1,11 +1,12 @@
 import s from './Chats.module.css';
 import { Item } from '../Item';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useChatsStore from '../../stores/chatsStore';
 
 export const Chats = () => {
   const { chats, deleteChat, renameChat } = useChatsStore();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   return (
     <div className={s.container}>
@@ -19,7 +20,10 @@ export const Chats = () => {
           <Item
             href={`/chat/${chat.id}`}
             isActive={`${chat.id}` === id}
-            onDelete={() => deleteChat(chat.id)}
+            onDelete={() => {
+              deleteChat(chat.id);
+              navigate('/');
+            }}
             onRename={() => {
               const userInput = prompt('Введите новое название');
               if (userInput) {

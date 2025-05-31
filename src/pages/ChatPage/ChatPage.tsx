@@ -33,9 +33,10 @@ export const ChatPage = () => {
         messages: updatedMessages,
         model: selectedModelId,
       });
+
       const systemMessage: Message = {
         role: 'system',
-        error: response.error.message,
+        error: response.error?.message,
         content: response.choices?.[0]?.message?.content,
       };
       const finalMessages: Message[] = [...updatedMessages, systemMessage];
