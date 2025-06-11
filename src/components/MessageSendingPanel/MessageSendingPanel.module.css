@@ -7,15 +7,15 @@
 .input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-stroke);
   border-radius: 4px;
   font-size: 16px;
   margin-right: 10px;
 }
 
 .button {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--color-green);
+  color: var(--color-text);
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
@@ -28,5 +28,5 @@
 }
 
 .button:hover {
-  background-color: #45a049;
+  background-color: var(--color-green-light);
 }

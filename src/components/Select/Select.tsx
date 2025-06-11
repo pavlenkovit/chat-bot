@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Select.module.css';
+import { Typography } from '../Typography';
 
 export type OptionType = {
   value: string;
@@ -61,16 +62,17 @@ export const Select: React.FC<SelectProps> = ({
         onClick={toggleDropdown}
       >
         <div className={styles.selectedValue}>
-          {options.find(option => option.value === value)?.label || placeholder}
+          <Typography variant="base">
+            {options.find(option => option.value === value)?.label}
+          </Typography>
         </div>
-        <div className={styles.arrow}>
+        <div className={isOpen ? `${styles.arrow} ${styles.rotated}` : styles.arrow}>
           <svg
-            width="14"
-            height="8"
+            width="24"
+            height="14"
             viewBox="0 0 14 8"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={isOpen ? styles.rotated : ''}
           >
             <path
               d="M1 1L7 7L13 1"
@@ -92,7 +94,7 @@ export const Select: React.FC<SelectProps> = ({
                 className={`${styles.option} ${value === option.value ? styles.selected : ''}`}
                 onClick={() => handleOptionClick(option)}
               >
-                {option.label}
+                <Typography variant="base">{option.label}</Typography>
               </li>
             ))}
           </ul>

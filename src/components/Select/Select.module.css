@@ -12,28 +12,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    background-color: #fff;
+    padding: 14px 20px;
+    border-radius: 16px;
+    background-color: var(--color-fill);
+    color: var(--color-text);
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.selectHeader:hover {
-    border-color: #CBD5E0;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    border: none;
+    transition: background 0.2s;
 }
 
 .selectHeader.active {
-    border-color: #3182CE;
-    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+    background-color: var(--color-fill-dark);
 }
 
 /* Выбранное значение */
 .selectedValue {
-    color: #2D3748;
-    font-size: 14px;
-    line-height: 20px;
+    color: var(--color-text);
+    font-size: 20px;
+    line-height: 28px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -44,54 +43,63 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #718096;
+    color: var(--color-text);
     transition: transform 0.2s ease;
 }
 
-.arrow svg.rotated {
+.rotated {
     transform: rotate(180deg);
 }
 
 /* Контейнер с опциями */
 .optionsContainer {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 8px);
     left: 0;
     width: 100%;
-    max-height: 250px;
-    overflow-y: auto;
-    background-color: #fff;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
+    background-color: var(--color-fill);
+    border-radius: 20px;
     z-index: 100;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.32);
+    color: var(--color-text);
+    padding-top: 18px;
+}
+
+/* Треугольник */
+.optionsContainer::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 32px;
+    width: 20px;
+    height: 10px;
+    background: transparent;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: var(--color-fill);
+    z-index: 101;
 }
 
 /* Список опций */
 .optionsList {
     margin: 0;
-    padding: 8px 0;
+    padding: 0 0 8px 0;
     list-style: none;
 }
 
 /* Отдельная опция */
 .option {
-    padding: 10px 16px;
-    color: #4A5568;
-    font-size: 14px;
-    line-height: 20px;
+    padding: 16px 24px;
+    color: var(--color-text);
+    font-size: 20px;
+    line-height: 28px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    border-radius: 12px;
+    transition: background 0.2s;
 }
 
-.option:hover {
-    background-color: #F7FAFC;
-}
-
+.option:hover,
 .option.selected {
-    background-color: #EBF8FF;
-    color: #3182CE;
-    font-weight: 500;
+    background-color: var(--color-fill-dark);
 }
 
 /* Состояние disabled */
@@ -101,7 +109,7 @@
 }
 
 .disabled .selectHeader {
-    background-color: #F7FAFC;
+    background-color: var(--color-fill);
     cursor: not-allowed;
 }
 
@@ -116,7 +124,7 @@
 }
 
 .optionsContainer::-webkit-scrollbar-thumb {
-    background: #CBD5E0;
+    background: var(--color-stroke);
     border-radius: 10px;
 }
 

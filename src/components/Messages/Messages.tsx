@@ -3,6 +3,7 @@ import s from './Messages.module.css';
 import Markdown from 'markdown-to-jsx';
 import { Message } from '../../types.ts';
 import cn from 'classnames';
+import { Typography } from '../Typography';
 
 type MessagesProps = {
   messages: Message[];
@@ -29,11 +30,13 @@ export const Messages: FC<MessagesProps> = ({ messages, isLoading }) => {
               [s.error]: !!message.error,
             })}
           >
-            {message.error}
-            <Markdown>{message.content}</Markdown>
+            <Typography variant="h1">
+              {message.error}
+              <Markdown>{message.content}</Markdown>
+            </Typography>
           </div>
         ))}
-        {isLoading ? <div className={cn(s.message, s.theirMessage)}>Подождите...</div> : null}
+        {isLoading ? <div className={cn(s.message, s.theirMessage)}><Typography variant="h1">Подождите...</Typography></div> : null}
       </div>
     </div>
   );
