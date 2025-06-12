@@ -4,6 +4,7 @@ import { Chats } from '../../components/Chats';
 import { Outlet } from 'react-router-dom';
 import useModelsStore from '../../stores/modelsStore.ts';
 import { Typography } from '../../components/Typography';
+import { Icon } from '../../components/Icon/Icon.tsx';
 
 export const MainLayout = () => {
   const { models, selectedModelId, setSelectedModelId } = useModelsStore();
@@ -12,6 +13,7 @@ export const MainLayout = () => {
     <div className={s.root}>
       <div className={s.header}>
           <div className={s.headerTitle}>
+            <div className={s.logo}><Icon name='ai-magic' size={24} /></div>
             <Typography variant="h1">GPT-Training</Typography>
           </div>
     

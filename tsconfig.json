@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite-plugin-svgr/client"],
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",

@@ -1,0 +1,26 @@
+.message {
+  max-width: 500px;
+  padding: 10px 12px;
+  border-radius: 12px 12px 12px 4px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.mine {
+  align-self: flex-end;
+  background-color: #33473a;
+  color: var(--color-text);
+  border-radius: 12px 12px 4px 12px;
+}
+
+.error {
+  background-color: lightcoral;
+  color: #fff;
+}
+
+/* По умолчанию чужое сообщение */
+.message:not(.mine):not(.error) {
+  align-self: flex-start;
+  background-color: var(--color-fill-dark);
+  color: var(--color-text);
+} 

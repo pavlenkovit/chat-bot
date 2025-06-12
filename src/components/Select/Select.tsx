@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Select.module.css';
 import { Typography } from '../Typography';
+import { Icon } from '../Icon';
 
 export type OptionType = {
   value: string;
@@ -58,7 +59,7 @@ export const Select: React.FC<SelectProps> = ({
       className={`${styles.select} ${disabled ? styles.disabled : ''} ${className}`}
     >
       <div
-        className={`${styles.selectHeader} ${isOpen ? styles.active : ''}`}
+        className={styles.selectHeader}
         onClick={toggleDropdown}
       >
         <div className={styles.selectedValue}>
@@ -67,21 +68,7 @@ export const Select: React.FC<SelectProps> = ({
           </Typography>
         </div>
         <div className={isOpen ? `${styles.arrow} ${styles.rotated}` : styles.arrow}>
-          <svg
-            width="24"
-            height="14"
-            viewBox="0 0 14 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 1L7 7L13 1"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <Icon name='chevron-down' size={16} />
         </div>
       </div>
 

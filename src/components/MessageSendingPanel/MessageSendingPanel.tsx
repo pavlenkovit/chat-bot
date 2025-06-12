@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import styles from './MessageSendingPanel.module.css';
-import cn from 'classnames';
+import { Button } from '../Button';
 
-export const MessageSendingPanel = ({ onSend }) => {
+type MessageSendingPanelProps = {
+  onSend: (message: string) => void;
+};
+
+export const MessageSendingPanel = ({ onSend }: MessageSendingPanelProps) => {
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
@@ -28,15 +32,7 @@ export const MessageSendingPanel = ({ onSend }) => {
         onChange={e => setMessage(e.target.value)}
         onKeyPress={handleKeyPress}
       />
-      <button
-        className={cn(styles.button, {
-          [styles.disabled]: !message,
-        })}
-        onClick={handleSend}
-        disabled={!message}
-      >
-        Отправить
-      </button>
+      <Button disabled={!message} variant={'primary'} onClick={handleSend}>Отправить</Button>
     </div>
   );
 };

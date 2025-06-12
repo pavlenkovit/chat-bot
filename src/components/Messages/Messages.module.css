@@ -9,29 +9,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.message {
-  max-width: 100%;
-  padding: 28px 32px;
-  border-radius: 32px;
-  font-size: 24px;
-  line-height: 32px;
-  word-wrap: break-word;
-  overflow: hidden;
-}
-
-.myMessage {
-  align-self: flex-end;
-  background-color: #33473a;
-  color: var(--color-text);
-}
-
-.theirMessage {
-  align-self: flex-start;
-  background-color: var(--color-fill-dark);
-  color: var(--color-text);
+  gap: 8px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .error {

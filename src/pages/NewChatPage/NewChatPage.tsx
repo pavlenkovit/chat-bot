@@ -4,6 +4,7 @@ import { MessageSendingPanel } from '../../components/MessageSendingPanel';
 import s from './NewChatPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import useChatsStore from '../../stores/chatsStore.ts';
+import { Typography } from '../../components/Typography/Typography.tsx';
 
 export const NewChatPage = () => {
   const { chats } = useChatsStore();
@@ -17,8 +18,10 @@ export const NewChatPage = () => {
 
   return (
     <div className={s.container}>
-      <div>О чем вы хотите узнать?</div>
+      <div className={s.innerContainer}>
+      <Typography variant='h1' className={s.title}>О чем вы хотите узнать?</Typography>
       <MessageSendingPanel onSend={handleSend} />
+      </div>
     </div>
   );
 };

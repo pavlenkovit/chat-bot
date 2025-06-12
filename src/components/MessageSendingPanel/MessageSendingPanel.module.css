@@ -1,7 +1,8 @@
 .container {
   display: flex;
   align-items: center;
-  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .input {
@@ -11,22 +12,4 @@
   border-radius: 4px;
   font-size: 16px;
   margin-right: 10px;
-}
-
-.button {
-  background-color: var(--color-green);
-  color: var(--color-text);
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button.disabled {
-  opacity: 0.5;
-}
-
-.button:hover {
-  background-color: var(--color-green-light);
 }

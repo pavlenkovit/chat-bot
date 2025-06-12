@@ -2,6 +2,8 @@ import s from './Chats.module.css';
 import { Item } from '../Item';
 import { useNavigate, useParams } from 'react-router-dom';
 import useChatsStore from '../../stores/chatsStore';
+import { Button } from '../Button';
+import { Icon } from '../Icon';
 
 export const Chats = () => {
   const { chats, deleteChat, renameChat } = useChatsStore();
@@ -10,11 +12,7 @@ export const Chats = () => {
 
   return (
     <div className={s.container}>
-      <div className={s.newChat}>
-        <Item href={'/'} isActive={!id}>
-          Новый чат
-        </Item>
-      </div>
+      <Button leftIcon={<Icon name='plus' size={16} />} className={s.newChatButton} variant='primary' onClick={() => navigate('/')}>Новый чат</Button>
       {chats.map(chat => (
         <div key={chat.id} className={s.item}>
           <Item

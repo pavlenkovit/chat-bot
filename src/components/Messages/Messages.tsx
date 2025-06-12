@@ -4,6 +4,7 @@ import Markdown from 'markdown-to-jsx';
 import { Message } from '../../types.ts';
 import cn from 'classnames';
 import { Typography } from '../Typography';
+import { Message as MessageComponent } from '../Message';
 
 type MessagesProps = {
   messages: Message[];
@@ -22,21 +23,20 @@ export const Messages: FC<MessagesProps> = ({ messages, isLoading }) => {
     <div ref={containerRef} className={s.scrollContainer}>
       <div className={s.container}>
         {messages.map((message, index) => (
-          <div
+          <MessageComponent
             key={index}
-            className={cn(s.message, {
-              [s.myMessage]: message.role === 'user',
-              [s.theirMessage]: message.role === 'system',
-              [s.error]: !!message.error,
-            })}
+            isMine={message.role === 'user'}
+            isError={!!message.error}
           >
-            <Typography variant="h1">
-              {message.error}
-              <Markdown>{message.content}</Markdown>
-            </Typography>
-          </div>
+            {message.error}
+            <Markdown>{message.content}</Markdown>
+          </MessageComponent>
         ))}
-        {isLoading ? <div className={cn(s.message, s.theirMessage)}><Typography variant="h1">Подождите...</Typography></div> : null}
+        {isLoading ? (
+          <MessageComponent>
+            Подождите...
+          </MessageComponent>
+        ) : null}
       </div>
     </div>
   );
